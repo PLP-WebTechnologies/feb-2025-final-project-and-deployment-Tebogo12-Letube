@@ -1,20 +1,27 @@
-let cart = [];
-
-document.getElementById("orderForm").addEventListener("submit", function(event) {
+document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    let foodItem = document.getElementById("foodItem").value;
-    let quantity = document.getElementById("quantity").value;
+    
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    let statusMsg = document.getElementById("formStatus");
 
-    let order = { item: foodItem, qty: quantity };
-    cart.push(order);
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    alert(`Order placed: ${foodItem} x ${quantity}`);
+    if (name === "" || email === "" || message === "") {
+        statusMsg.style.color = "red";
+        statusMsg.textContent = "❌ Please fill in all fields!";
+    } else {
+        statusMsg.style.color = "lightgreen";
+        statusMsg.textContent = "✅ Message sent successfully!";
+        
+        localStorage.setItem("contactMessage", JSON.stringify({ name, email, message }));
+    }
 });
 
+// Load the saved messages when refreshed
 document.addEventListener("DOMContentLoaded", function() {
-    let savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
+    let savedMessage = localStorage.getItem("contactMessage");
+    if (savedMessage) {
+        let data = JSON.parse(savedMessage);
+        document.getElementById("formStatus").textContent = `Last Message: ${data.message}`;
     }
 });
