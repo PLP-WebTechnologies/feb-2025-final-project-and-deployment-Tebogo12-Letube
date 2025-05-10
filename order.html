@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now | Tebogo's Food Joint</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Place Your Order</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Order Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form id="orderForm">
+            <label for="foodItem">Select Your Item:</label>
+            <select id="foodItem">
+                <option value="burger">Cheese Burger - R45.00</option>
+                <option value="kota">Kota - R70.00</option>
+                <option value="milkshake">Milkshake - R40.00</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1">
+
+            <button type="submit">Place Order</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tebogo's Food Joint | Quick & Easy Ordering</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
